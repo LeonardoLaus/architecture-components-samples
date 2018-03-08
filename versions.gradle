@@ -1,0 +1,56 @@
+ext.deps = [:]
+def versions = [:]
+versions.support = '26.1.0'
+versions.kotlin = '1.2.10'
+versions.leakcanary = '1.5.4'
+versions.function = '1.1.0'
+versions.freemarker = '2.3.23'
+
+def deps = [:]
+
+def support = [:]
+support.appcompat = "com.android.support:appcompat-v7:${versions.support}"
+support.v4 = "com.android.support:support-v4:${versions.support}"
+support.recyclerview = "com.android.support:recyclerview-v7:${versions.support}"
+support.annotations = "com.android.support:support-annotations:${versions.support}"
+support.design = "com.android.support:design:${versions.support}"
+deps.support = support
+
+def kotlin = [:]
+kotlin.gradle_plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}"
+kotlin.stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}"
+deps.kotlin = kotlin
+
+def leakcanary = [:]
+leakcanary.debug = "com.squareup.leakcanary:leakcanary-android:${versions.leakcanary}"
+leakcanary.release = "com.squareup.leakcanary:leakcanary-android-no-op:${versions.leakcanary}"
+deps.leakcanary = leakcanary
+
+deps.java8function = "leon.java.function:function-interfaces:${versions.function}"
+deps.freemarker = "org.freemarker:freemarker:${versions.freemarker}"
+
+ext.deps = deps
+
+def build_versions = [:]
+build_versions.min_sdk = 18
+build_versions.target_sdk = 26
+build_versions.build_tools = '26.0.2'
+build_versions.compile_sdk = 26
+ext.build_versions = build_versions
+
+def compile_options = [:]
+compile_options.source = JavaVersion.VERSION_1_8
+compile_options.target = JavaVersion.VERSION_1_8
+ext.compile_options = compile_options
+
+
+def addRepos(RepositoryHandler handler) {
+    handler.google()
+    handler.jcenter()
+    handler.mavenCentral()
+    handler.maven { url "https://jitpack.io" }
+    handler.flatDir { dirs 'libs' }
+    handler.maven { url 'https://dl.bintray.com/dingling/Maven' }
+}
+
+ext.addRepos = this.&addRepos
