@@ -1,1 +1,1 @@
-include ':app', ':architecture-component', ':template-genertor'
+include ':app', ':architecture-component', ':template-genertor', ':annotations'

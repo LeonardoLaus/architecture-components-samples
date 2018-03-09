@@ -1,11 +1,9 @@
-apply plugin: 'java-library'
+apply plugin: 'java'
 
 
 sourceSets {
     main {
-        resources {
-            srcDir 'resources'
-        }
+        resources.srcDirs += ['resources']
     }
 }
 
@@ -13,6 +11,3 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation deps.freemarker
 }
-
-sourceCompatibility = "1.7"
-targetCompatibility = "1.7"

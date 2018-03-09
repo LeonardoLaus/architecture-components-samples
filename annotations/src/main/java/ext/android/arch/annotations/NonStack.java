@@ -1,4 +1,4 @@
-package ext.android.arch.component.annotations;
+package ext.android.arch.annotations;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
