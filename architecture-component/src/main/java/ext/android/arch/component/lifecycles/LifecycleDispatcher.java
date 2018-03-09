@@ -10,7 +10,7 @@ import android.support.annotation.RestrictTo;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import ext.android.arch.component.annotations.NonStack;
+import ext.android.arch.annotations.NonStack;
 import ext.android.arch.component.stacks.ActivityStack;
 
 @RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)

@@ -1,6 +1,5 @@
-apply plugin: 'java'
-
-
+apply plugin: 'java-library'
+apply plugin: 'idea'
 sourceSets {
     main {
         resources.srcDirs += ['resources']
@@ -9,5 +8,16 @@ sourceSets {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation deps.freemarker
+    compile deps.freemarker
+}
+
+idea {
+    module {
+        scopes.PROVIDED.minus += [configurations.compile]
+        scopes.COMPILE.plus += [configurations.compile]
+    }
+}
+
+repositories {
+    mavenCentral()
 }
