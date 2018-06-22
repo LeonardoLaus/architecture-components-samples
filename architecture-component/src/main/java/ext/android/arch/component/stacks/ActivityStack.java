@@ -88,6 +88,9 @@ public final class ActivityStack {
      * @return
      */
     public Activity top() {
+        if (mStack.empty()) {
+            return null;
+        }
         return mStack.lastElement();
     }
 
